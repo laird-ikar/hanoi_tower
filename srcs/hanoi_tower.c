@@ -6,7 +6,7 @@
 /*   By: bguyot <bguyot@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 15:13:50 by bguyot            #+#    #+#             */
-/*   Updated: 2021/12/21 15:50:50 by bguyot           ###   ########.fr       */
+/*   Updated: 2021/12/21 15:51:07 by bguyot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	init(t_tower *tower, int size)
 	{
 		tower->old[size] = tower->size - size;
 		tower->new[size] = 0;
-		tower->tmp[soze] = 0;
+		tower->tmp[soze] = 1;
 	}
 }
 
