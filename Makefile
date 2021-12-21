@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = brainfuck_interpretor
+NAME = a.out
 
 SRCS = srcs/brainfuck_interpretor.c
 
