@@ -12,7 +12,7 @@
 
 NAME = a.out
 
-SRCS = srcs/brainfuck_interpretor.c
+SRCS = srcs/*.c
 
 OBJS = $(SRCS:.c=.o)
 
