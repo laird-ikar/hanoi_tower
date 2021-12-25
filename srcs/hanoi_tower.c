@@ -6,7 +6,7 @@
 /*   By: bguyot <bguyot@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 15:13:50 by bguyot            #+#    #+#             */
-/*   Updated: 2021/12/23 21:55:16 by bguyot           ###   ########.fr       */
+/*   Updated: 2021/12/25 23:47:03 by bguyot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	main(int ac, char *av[])
 {
 	t_tower	*tower;
+	t_hanoi	algo;
 
 	tower = malloc(sizeof(t_tower));
 	if (ac != 2)
@@ -24,7 +25,10 @@ int	main(int ac, char *av[])
 	}
 	init(tower, ft_atoi(av[1]));
 	print_tower(tower);
-	hanoi(tower);
+	algo.d = tower->old;
+	algo.a = tower->new;
+	algo.i = tower->tmp;
+	hanoi(tower, algo, tower->size);
 	free(tower);
 	return (0);
 }
@@ -32,7 +36,6 @@ int	main(int ac, char *av[])
 void	init(t_tower *tower, int size)
 {
 	tower->size = size;
-	tower->move = size;
 	tower->old = malloc(sizeof(int) * size);
 	tower->new = malloc(sizeof(int) * size);
 	tower->tmp = malloc(sizeof(int) * size);
@@ -90,4 +93,5 @@ void	print_tower_part_2(char *str, t_tower *tower, int str_size)
 	add_char_to_str(str, '\0', 2);
 	write(1, str, str_size);
 	free(str);
+	write(1, "\n\n\n\n", 4);
 }
