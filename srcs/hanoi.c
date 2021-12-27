@@ -6,7 +6,7 @@
 /*   By: bguyot <bguyot@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 21:35:14 by bguyot            #+#    #+#             */
-/*   Updated: 2021/12/25 23:44:44 by bguyot           ###   ########.fr       */
+/*   Updated: 2021/12/27 16:49:16 by bguyot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	hanoi(t_tower *tower, t_hanoi algo, int n)
 		n_algo.a = algo.i;
 		n_algo.i = algo.a;
 		hanoi(tower, n_algo, n - 1);
-		dep_disk(algo.d, algo.a, tower->size, tower);
+		dep_disk(algo.d, algo.a, tower->size);
+		print_tower(tower);
 		n_algo.d = algo.i;
 		n_algo.a = algo.a;
 		n_algo.i = algo.d;
@@ -30,7 +31,7 @@ void	hanoi(t_tower *tower, t_hanoi algo, int n)
 	}
 }
 
-void	dep_disk(int *old_tab, int *new_tab, int size, t_tower *tower)
+void	dep_disk(int *old_tab, int *new_tab, int size)
 {
 	int	max_old;
 	int	max_new;
@@ -43,5 +44,4 @@ void	dep_disk(int *old_tab, int *new_tab, int size, t_tower *tower)
 		max_new++;
 	new_tab[max_new] = old_tab[max_old];
 	old_tab[max_old] = 0;
-	print_tower(tower);
 }
